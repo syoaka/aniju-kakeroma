@@ -1,31 +1,11 @@
 <%= render "header" %>
 
 <%# 投稿の概要 %>
+
+
+      
 <div class="item-show">
   <div class="item-box">
-    <h2 class="name">
-      <%= @post.title %>
-    </h2>
-    <div class="item-explain-box">
-      <span><%= @post.text %></span>
-    </div>
-    <div class="item-img-content">
-      <%= image_tag @post.image, class:"item-box-img" %>
-    </div>
-
-    <% if user_signed_in? %>
-      <% if current_user.id == @post.user_id %>
-        <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
-      <% else %>
-        <%= link_to "購入画面に進む", item_orders_path(@item.id) ,class:"item-red-btn"%>
-      <% end %>
-    <% end %>
-
-    <div class="item-explain-box">
-      <span><%= @item.text %></span>
-    </div>
 
     <table class="detail-table">
       <tbody>
@@ -40,23 +20,46 @@
       </tbody>
     </table>
 
+   
+
+    <h2 class="name">
+      <%= @post.title %>
+    </h2>
+    <div class="item-explain-box">
+      <span><%= @post.text %></span>
+    </div>
+    <div class="item-img-content">
+      <%= image_tag @post.image, class:"item-box-img" if @post.image.attached? %>
+    </div>
+
+    <div class="comment-box">
+      <form>
+        <textarea class="comment-text"></textarea>
+        <p class="comment-warn">
+          相手のことを考え丁寧なコメントを心がけましょう。
+          <br>
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        </p>
+        <button type="submit" class="comment-btn">
+          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+          <span>コメントする<span>
+        </button>
+      </form>
+    </div>
+
+    <% if user_signed_in? && current_user.id == @post.user_id%>
+        <%= link_to "投稿内容編集", edit_post_path, method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "投稿削除", post_path(@post.id), method: :delete, class:"item-destroy" %>
+    <% end %>
+
+    
+    </table>
+
   </div>
   <%# /投稿の概要 %>
 
-  <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
-  </div>
+  
   
 </div>
 
