@@ -6,8 +6,7 @@ a {
   background: #f8f8f8;
 }
 
-/* 商品一覧 */
-
+/* 投稿一覧 */
 .post-contents {
   height: calc(92vh - 15vh) ;
   background-color: #f5f6f6c9;
@@ -56,5 +55,30 @@ a {
 .post-title {
   font-size: 2.5vh;
 }
+/* //投稿一覧 */
 
-/* //商品一覧 */
+
+/* 投稿ボタン */
+.purchase-btn {
+  width: 150px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 5%;
+  bottom: 55px;
+  right: 42px;
+  position: fixed;
+  padding: 10px;
+}
+
+.purchase-btn-text {
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.purchase-btn-icon {
+  width: 95%;
+}
+/* //投稿ボタン */

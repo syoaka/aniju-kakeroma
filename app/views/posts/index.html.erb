@@ -26,8 +26,10 @@
     </ul>
   </div>
   <%# /投稿一覧 %>
-  
-    
 </div>
+<%= link_to(new_post_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>クリックして</span>
+  <%= image_tag 'soudan.jpeg' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
 
 <%= render "footer" %>
