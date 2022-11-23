@@ -1,0 +1,73 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to 'aniju' , "/" %>
+
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">相談内容を編集</h2>
+    <%= form_with model: @post, local: true do |f| %>
+
+    <%# render 'devise/shared/error_messages', model: f.object %>
+
+
+    <%# タイトルと本文 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          相談内容
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"相談内容本文（必須 1,000文字まで）例）諸鈍地区への移住を検討しています。空き家情報があれば教えていただきたいです" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /タイトルと本文 %>
+
+    <%# 相談詳細 %>
+    <div class="items-detail">
+      <div class="form">
+        <div class="weight-bold-text">
+          対象地域
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>       
+      </div>
+    </div>
+    <%# /相談詳細 %>
+
+    <%# 画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <%# /画像 %>
+
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+
+    <p class="inc">
+      aniju
+    </p>
+  </footer>
+
+</div>
