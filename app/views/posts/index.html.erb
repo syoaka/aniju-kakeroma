@@ -15,7 +15,7 @@
               <div class='post-info'>
                 
                 <h3 class='post-text'>
-                  <%= link_to post.user.name, user_path(current_user.id) %>さんが<%= post.created_at.to_s(:datetime_jp) %>に投稿
+                  <%= post.user.name %>さんが<%= post.created_at.to_s(:datetime_jp) %>に投稿
                 </h3>
                 
                 <h3 class='post-title'>

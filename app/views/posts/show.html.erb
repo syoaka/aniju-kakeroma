@@ -11,7 +11,7 @@
       <tbody>
         <tr>
           <th class="detail-item">投稿者</th>
-          <td class="detail-value"><%= @post.user.name %></td>
+          <td class="detail-value"><%= link_to @post.user.name, user_path%></td>
         </tr>
         <tr>
           <th class="detail-item">対象地域</th>
@@ -32,19 +32,25 @@
       <%= image_tag @post.image, class:"item-box-img" if @post.image.attached? %>
     </div>
 
-    <div class="comment-box">
-      <form>
-        <textarea class="comment-text"></textarea>
-        <p class="comment-warn">
-          相手のことを考え丁寧なコメントを心がけましょう。
-          <br>
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
         </p>
-        <button type="submit" class="comment-btn">
-          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-          <span>コメントする<span>
-        </button>
-      </form>
+      <% end %>
+    </div>
+
+    <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@post, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
     </div>
 
     <% if user_signed_in? && current_user.id == @post.user_id%>
