@@ -1,0 +1,59 @@
+a {
+  text-decoration: none;
+}
+
+.main {
+  background: #f8f8f8;
+}
+
+/* 商品一覧 */
+
+.post-contents {
+  height: calc(92vh - 15vh) ;
+  background-color: #f5f6f6c9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vh 0;
+
+}
+
+
+.post-contents>.subtitle {
+  font-size: 12px;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.post-lists {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+}
+
+.post-lists>.list {
+  width: 40vw;
+  margin: 0 0 15px 0;
+  background-color: #FFF;
+}
+
+.post-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.post-text {
+  font-size: 2vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-title {
+  font-size: 2.5vh;
+}
+
+/* //商品一覧 */

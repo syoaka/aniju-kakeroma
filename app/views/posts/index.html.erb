@@ -1,0 +1,33 @@
+<%= render "header" %>
+<div class='main'>
+
+  <%# 投稿一覧 %>
+  <div class='post-contents'>
+
+    <div class="subtitle" >
+      新着投稿
+    </div>
+  
+    <ul class='post-lists'>
+        <% @posts.each do |post| %>
+          <li class='list'>
+            <div class='post-info'>
+              
+              <h3 class='post-text'>
+                <%= post.user.name %>さんが<%= post.created_at.to_s(:datetime_jp) %>に投稿
+              </h3>
+              
+              <h3 class='post-title'>
+                <%= post.title %>
+              </h3>
+            </div>
+          </li>
+        <% end %>
+    </ul>
+  </div>
+  <%# /投稿一覧 %>
+  
+    
+</div>
+
+<%= render "footer" %>
