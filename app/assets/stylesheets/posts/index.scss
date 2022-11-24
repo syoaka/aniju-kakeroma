@@ -8,7 +8,7 @@ a {
 
 /* 投稿一覧 */
 .post-contents {
-  height: calc(92vh - 15vh) ;
+  height: calc(95vh - 15vh) ;
   background-color: #f5f6f6c9;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ a {
 
 
 .post-contents>.subtitle {
-  font-size: 12px;
+  font-size: 18px;
   text-decoration: none;
   color: #3ccace;
   font-weight: bold;

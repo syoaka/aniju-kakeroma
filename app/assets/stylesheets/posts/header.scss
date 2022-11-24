@@ -4,11 +4,11 @@
 
 .top-page-header {
   width: 100vw;
-  height: 15vh;
+  height: 17vh;
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
-  
+  background-color: #ccf8f9;
 }
 
 .search-bar-contents {
@@ -18,15 +18,13 @@
 }
 
 .aniju-icon {
-  width: 10vw;
-  margin-right: 10vw;
+  font-size: 16px;
 }
 
 .search-form {
-  width: 65vw;
+  width: 75vw;
   height: 5vh;
   display: flex;
-  margin-bottom: 5px;
 }
 
 .search-form>.input-box {
@@ -36,7 +34,8 @@
 }
 
 .search-button {
-  width: 5vh;
+  width: 10vh;
+  height: 5vh;
   border: 0;
   cursor: pointer;
   background-color: #3ccace;
@@ -44,7 +43,7 @@
 }
 
 .search-icon {
-  width: 100%;
+  width: 50%;
 }
 
 .nav {

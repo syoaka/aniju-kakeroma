@@ -12,4 +12,12 @@ class Post < ApplicationRecord
     validates :area_id, numericality: { other_than: 1, message: 'を選択してください'}
   end
 
+  def self.search(search)
+    if search != ""
+      Post.where('title LIKE(?)', "%#{search}%")
+    else
+      Post.all
+    end
+  end
+
 end
