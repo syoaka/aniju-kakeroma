@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      render :show
+      redirect_to post_path
     else
       render :edit
     end
